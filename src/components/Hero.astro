@@ -31,7 +31,7 @@ import { siteConfig } from "../config";
     </h1>
 
     <!-- Title -->
-    <p class="hero-subtitle font-mono text-xs sm:text-sm tracking-[0.3em] uppercase mt-6" style="color: var(--color-accent);">
+    <p class="hero-subtitle font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.15em] sm:tracking-[0.3em] uppercase mt-6 px-2" style="color: var(--color-accent);">
       {siteConfig.title}
     </p>
 
@@ -41,13 +41,13 @@ import { siteConfig } from "../config";
     </p>
 
     <!-- Stats -->
-    <div class="hero-stats flex flex-wrap justify-center gap-8 sm:gap-12 mt-12">
+    <div class="hero-stats flex flex-wrap justify-center gap-6 sm:gap-12 mt-12 px-4">
       {siteConfig.stats.map((stat) => (
-        <div class="text-center">
+        <div class="text-center min-w-0">
           <div class="font-mono text-2xl sm:text-3xl font-bold" style="color: var(--color-accent);">
             {stat.value}
           </div>
-          <div class="text-xs tracking-widest uppercase mt-1" style="color: var(--color-surface-light); opacity: 0.5;">
+          <div class="text-[10px] sm:text-xs tracking-wider sm:tracking-widest uppercase mt-1" style="color: var(--color-surface-light); opacity: 0.5;">
             {stat.label}
           </div>
         </div>
