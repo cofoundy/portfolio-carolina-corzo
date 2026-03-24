@@ -2,7 +2,7 @@
 
 Portafolio profesional.
 
-**Live:** *Se actualizará después del deploy*
+**Live:** [cofoundy.github.io](https://cofoundy.github.io/)
 
 ## Tech Stack
 
