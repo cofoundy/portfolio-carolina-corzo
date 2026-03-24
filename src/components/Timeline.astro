@@ -1,0 +1,55 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="trayectoria" class="py-20 sm:py-28" style="background: var(--color-primary-dark);">
+  <div class="max-w-4xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="reveal mb-16">
+      <p class="font-mono text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-accent);">
+        De Lima a Ciudad de México
+      </p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-wider" style="color: var(--color-surface-light);">
+        TRAYECTORIA
+      </h2>
+      <div class="gold-shimmer mt-4 w-24"></div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-4 sm:left-6 top-0 bottom-0 w-px" style="background: var(--color-primary-light);"></div>
+
+      {siteConfig.experience.map((exp, i) => (
+        <div class={`reveal stagger-${(i % 6) + 1} relative pl-12 sm:pl-16 pb-12 last:pb-0`}>
+          <!-- Dot -->
+          <div
+            class={`absolute left-2.5 sm:left-4.5 top-1 w-3 h-3 rounded-full border-2 ${i === 0 ? 'timeline-dot-pulse' : ''}`}
+            style={`border-color: var(--color-accent); background: ${i === 0 ? 'var(--color-accent)' : 'var(--color-primary-dark)'};`}
+          ></div>
+
+          <!-- Content -->
+          <div class="p-5 sm:p-6 rounded-lg border transition-all duration-300 hover:border-opacity-50" style="background: var(--color-primary); border-color: var(--color-primary-light);">
+            <!-- Period -->
+            <span class="font-mono text-xs tracking-widest" style="color: var(--color-accent);">
+              {exp.period}
+            </span>
+
+            <!-- Company + Role -->
+            <h3 class="text-lg sm:text-xl tracking-wider mt-2" style="color: var(--color-surface-light);">
+              {exp.company}
+            </h3>
+            <p class="font-mono text-xs tracking-wide mt-1" style="color: var(--color-surface-light); opacity: 0.6;">
+              {exp.role}
+            </p>
+
+            <!-- Highlight -->
+            <p class="text-sm mt-3 leading-relaxed" style="color: var(--color-surface-light); opacity: 0.7;">
+              {exp.highlight}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

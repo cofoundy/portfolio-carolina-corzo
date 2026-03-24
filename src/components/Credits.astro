@@ -1,0 +1,63 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="creditos" class="py-20 sm:py-28" style="background: var(--color-surface);">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="reveal mb-16">
+      <p class="font-mono text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-accent);">
+        Discografía Selecta
+      </p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-wider" style="color: var(--color-surface-light);">
+        CRÉDITOS DESTACADOS
+      </h2>
+      <div class="gold-shimmer mt-4 w-24"></div>
+    </div>
+
+    <!-- Credits grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {siteConfig.credits.map((credit, i) => (
+        <div
+          class={`credit-card reveal stagger-${(i % 6) + 1} p-6 sm:p-8 rounded-lg border`}
+          style="background: var(--color-primary); border-color: var(--color-primary-light);"
+        >
+          <!-- Record icon -->
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: var(--color-primary-light);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <span class="font-mono text-xs tracking-widest uppercase" style="color: var(--color-accent);">
+              {credit.year}
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-xl sm:text-2xl tracking-wider mb-2" style="color: var(--color-surface-light);">
+            {credit.title}
+          </h3>
+
+          <!-- Artist -->
+          <p class="text-sm font-medium" style="color: var(--color-accent);">
+            {credit.artist}
+          </p>
+
+          <!-- Role -->
+          <p class="font-mono text-xs mt-3 tracking-wide" style="color: var(--color-surface-light); opacity: 0.5;">
+            {credit.role}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Additional context -->
+    <div class="reveal mt-12 text-center">
+      <p class="font-mono text-xs tracking-wide" style="color: var(--color-surface-light); opacity: 0.4;">
+        Coordinación de producción musical junto al reconocido productor Armando Ávila
+      </p>
+    </div>
+  </div>
+</section>

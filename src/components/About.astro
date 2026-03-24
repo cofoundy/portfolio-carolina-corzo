@@ -1,0 +1,73 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="sobre-mi" class="py-20 sm:py-28" style="background: var(--color-primary-dark);">
+  <div class="max-w-4xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="reveal mb-12">
+      <p class="font-mono text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-accent);">
+        Detrás de la Música
+      </p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-wider" style="color: var(--color-surface-light);">
+        SOBRE MÍ
+      </h2>
+      <div class="gold-shimmer mt-4 w-24"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <!-- Bio (2 cols) -->
+      <div class="md:col-span-2 reveal">
+        <p class="text-sm sm:text-base leading-relaxed" style="color: var(--color-surface-light); opacity: 0.8;">
+          {siteConfig.about.bio}
+        </p>
+        <p class="text-sm mt-4 italic" style="color: var(--color-accent); opacity: 0.8;">
+          "Se distingue por un enfoque cercano pero estratégico, priorizando decisiones que protejan la identidad artística y el crecimiento a largo plazo."
+        </p>
+      </div>
+
+      <!-- Quick facts (1 col) -->
+      <div class="reveal stagger-2 space-y-6">
+        <!-- Origin -->
+        <div>
+          <p class="font-mono text-xs tracking-widest uppercase mb-1" style="color: var(--color-accent);">
+            Origen
+          </p>
+          <p class="text-sm" style="color: var(--color-surface-light); opacity: 0.7;">
+            {siteConfig.about.origin}
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <p class="font-mono text-xs tracking-widest uppercase mb-1" style="color: var(--color-accent);">
+            Formación
+          </p>
+          <p class="text-sm" style="color: var(--color-surface-light); opacity: 0.7;">
+            {siteConfig.about.education}
+          </p>
+        </div>
+
+        <!-- Industry -->
+        <div>
+          <p class="font-mono text-xs tracking-widest uppercase mb-1" style="color: var(--color-accent);">
+            Industria
+          </p>
+          <p class="text-sm" style="color: var(--color-surface-light); opacity: 0.7;">
+            {siteConfig.about.speaker}
+          </p>
+        </div>
+
+        <!-- Languages -->
+        <div>
+          <p class="font-mono text-xs tracking-widest uppercase mb-1" style="color: var(--color-accent);">
+            Idiomas
+          </p>
+          <p class="text-sm" style="color: var(--color-surface-light); opacity: 0.7;">
+            {siteConfig.about.languages}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="hero" class="min-h-screen flex items-center justify-center relative" style="background: var(--color-primary-dark);">
+  <!-- Subtle waveform pattern background -->
+  <div class="absolute inset-0 overflow-hidden opacity-5">
+    <svg class="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
+      <path d="M0,400 C240,300 480,500 720,400 C960,300 1200,500 1440,400" fill="none" stroke="var(--color-accent)" stroke-width="1"/>
+      <path d="M0,420 C240,320 480,520 720,420 C960,320 1200,520 1440,420" fill="none" stroke="var(--color-accent)" stroke-width="0.5"/>
+      <path d="M0,380 C240,280 480,480 720,380 C960,280 1200,480 1440,380" fill="none" stroke="var(--color-accent)" stroke-width="0.5"/>
+    </svg>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-6 text-center relative z-10 py-24">
+    <!-- Waveform accent -->
+    <div class="hero-tagline flex items-center justify-center gap-1 mb-8">
+      <div class="waveform-bar" style="height: 12px;"></div>
+      <div class="waveform-bar" style="height: 20px;"></div>
+      <div class="waveform-bar" style="height: 8px;"></div>
+      <div class="waveform-bar" style="height: 16px;"></div>
+      <div class="waveform-bar" style="height: 24px;"></div>
+      <div class="waveform-bar" style="height: 10px;"></div>
+      <div class="waveform-bar" style="height: 18px;"></div>
+    </div>
+
+    <!-- Name -->
+    <h1 class="hero-title text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider leading-none" style="color: var(--color-surface-light);">
+      CAROLINA<br/>
+      <span style="color: var(--color-accent);">CORZO</span>
+    </h1>
+
+    <!-- Title -->
+    <p class="hero-subtitle font-mono text-xs sm:text-sm tracking-[0.3em] uppercase mt-6" style="color: var(--color-accent);">
+      {siteConfig.title}
+    </p>
+
+    <!-- Tagline -->
+    <p class="hero-subtitle mt-4 text-sm sm:text-base max-w-xl mx-auto" style="color: var(--color-surface-light); opacity: 0.6;">
+      {siteConfig.tagline}
+    </p>
+
+    <!-- Stats -->
+    <div class="hero-stats flex flex-wrap justify-center gap-8 sm:gap-12 mt-12">
+      {siteConfig.stats.map((stat) => (
+        <div class="text-center">
+          <div class="font-mono text-2xl sm:text-3xl font-bold" style="color: var(--color-accent);">
+            {stat.value}
+          </div>
+          <div class="text-xs tracking-widest uppercase mt-1" style="color: var(--color-surface-light); opacity: 0.5;">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-cta mt-16 flex flex-col items-center gap-2">
+      <span class="font-mono text-xs tracking-widest uppercase" style="color: var(--color-accent); opacity: 0.5;">
+        Explorar
+      </span>
+      <div class="w-px h-8" style="background: linear-gradient(to bottom, var(--color-accent), transparent);"></div>
+    </div>
+  </div>
+</section>
