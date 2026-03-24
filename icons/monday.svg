@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -20.5 100 100" role="img">
+  <title>monday.com</title>
+  <!-- monday.com "m" isotipo: 3 diagonal pill shapes -->
+  <!-- Red (left leg) -->
+  <ellipse cx="23.2" cy="29.6" rx="14.1" ry="31.7" fill="#F62B54"
+    transform="rotate(-20.3 23.2 29.6)"/>
+  <!-- Yellow (center leg) -->
+  <ellipse cx="60.9" cy="29.6" rx="14.1" ry="31.7" fill="#FFCC00"
+    transform="rotate(-20.3 60.9 29.6)"/>
+  <!-- Green (right leg, shorter, starts lower) -->
+  <ellipse cx="88.0" cy="48.0" rx="11.0" ry="16.5" fill="#00CA72"
+    transform="rotate(-20.3 88.0 48.0)"/>
+</svg>
