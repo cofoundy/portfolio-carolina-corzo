@@ -192,6 +192,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   BRAND ICONS — Monochrome for dark theme
+   ═══════════════════════════════════════════════════════════ */
+
+.brand-icon {
+  filter: grayscale(1) brightness(10);
+  opacity: 0.6;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.brand-icon:hover,
+*:hover > .brand-icon {
+  opacity: 0.9;
+}
+
+/* ═══════════════════════════════════════════════════════════
    LINK UNDERLINE
    ═══════════════════════════════════════════════════════════ */
 
