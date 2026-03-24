@@ -1,0 +1,83 @@
+---
+/**
+ * BrandIcon — Manifest-driven icon component
+ * Reads public/icons/ directory at build time. Supports SVG and PNG.
+ * No hardcoded map — if the file exists in public/icons/, it works.
+ *
+ * Usage:
+ *   <BrandIcon name="python" size={16} />
+ *   <BrandIcon name="bbva" size={24} />
+ *
+ * How it works:
+ *   1. Normalizes name → lowercase, no spaces ("Apache Spark" → "apachespark")
+ *   2. Checks if public/icons/{name}.svg exists → <img> tag
+ *   3. Else checks public/icons/{name}.png → <img> tag with rounding
+ *   4. Else renders text initials fallback
+ *
+ * Icons are copied to public/icons/ by packages/icons/copy-icons.sh
+ * Source of truth: packages/icons/manifest.json
+ */
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 20, class: className = "" } = Astro.props;
+
+// Normalize: "Apache Spark" → "apachespark", "Azure Data Factory" → "azuredatafactory"
+const key = name.toLowerCase().replace(/[\s./+#-]+/g, "");
+
+// Auto-discover from filesystem at build time
+// Astro runs this at build — it's not runtime code
+import fs from "node:fs";
+import path from "node:path";
+
+const iconsDir = path.join(process.cwd(), "public", "icons");
+let iconFile: string | null = null;
+let format: "svg" | "png" | null = null;
+
+// Generate lookup candidates (most specific → least specific)
+const candidates = [
+  key,                                       // "azuredatafactory"
+  key.replace("apache", ""),                 // "apachespark" → "spark"
+  name.toLowerCase().replace(/\s+/g, "-"),   // "Apache Spark" → "apache-spark"
+  key.split(/(?=[A-Z])/).join("").toLowerCase(), // camelCase split
+  // Extract first word as fallback (catches "Azure X" → "azure", "IBM X" → "ibm", "Spark X" → "spark")
+  name.split(/\s+/)[0].toLowerCase(),
+];
+
+for (const candidate of candidates) {
+  const svgPath = path.join(iconsDir, `${candidate}.svg`);
+  const pngPath = path.join(iconsDir, `${candidate}.png`);
+  if (fs.existsSync(svgPath)) {
+    iconFile = `${candidate}.svg`;
+    format = "svg";
+    break;
+  }
+  if (fs.existsSync(pngPath)) {
+    iconFile = `${candidate}.png`;
+    format = "png";
+    break;
+  }
+}
+---
+
+{iconFile ? (
+  <img
+    src={`/icons/${iconFile}`}
+    alt={name}
+    width={size}
+    height={size}
+    class:list={[format === "png" ? "rounded" : "", className]}
+    loading="lazy"
+    style="display:inline-block;vertical-align:middle;object-fit:contain;"
+  />
+) : (
+  <span
+    class:list={["inline-flex items-center justify-center rounded bg-white/10 text-[10px] font-mono text-slate-400", className]}
+    style={`width:${size}px;height:${size}px;`}
+  >
+    {name.slice(0, 2).toUpperCase()}
+  </span>
+)}

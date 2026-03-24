@@ -97,10 +97,20 @@ export const siteConfig = {
     description: "Canciones en las que trabajé como coordinadora o de A&R a lo largo de mi trayectoria en la industria musical.",
   },
 
+  tools: [
+    "Spotify", "YouTube", "Apple Music", "Chartmetric",
+    "Logic Pro", "Pro Tools", "TikTok", "Instagram",
+    "SAP", "Asana", "Monday", "Canva",
+  ],
+
+  education: [
+    { school: "UNIR México", degree: "MBA — Dirección y Administración de Empresas", period: "2024 – 2026 (en curso)" },
+    { school: "UPC Perú", degree: "Lic. en Música — Producción Musical", period: "2014 – 2019 (GPA 3.78/4.0)" },
+  ],
+
   about: {
     bio: "Ejecutiva de A&R con más de 6 años de experiencia en el desarrollo artístico, curaduría de repertorio y ejecución estratégica de lanzamientos dentro de la industria musical latinoamericana. Ha trabajado en sellos independientes y major, integrando sensibilidad creativa, análisis de data y estructura operativa para construir proyectos sólidos y sostenibles.",
     origin: "Peruana — Española | Experiencia en México & LATAM",
-    education: "MBA en curso — UNIR México | Lic. en Música, Producción Musical — UPC Perú (GPA 3.78/4.0)",
     speaker: "Speaker en Ritmo Mercado Musical | Jurado en Tecnológico de Monterrey",
     languages: "Español (nativo) | Inglés (avanzado)",
   },

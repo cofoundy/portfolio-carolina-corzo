@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../config";
+import BrandIcon from "./BrandIcon.astro";
 ---
 
 <section id="sobre-mi" class="py-20 sm:py-28" style="background: var(--color-primary-dark);">
@@ -24,6 +25,24 @@ import { siteConfig } from "../config";
         <p class="text-sm mt-4 italic" style="color: var(--color-accent); opacity: 0.8;">
           "Se distingue por un enfoque cercano pero estratégico, priorizando decisiones que protejan la identidad artística y el crecimiento a largo plazo."
         </p>
+
+        <!-- Tools / Herramientas -->
+        <div class="mt-8">
+          <p class="font-mono text-xs tracking-widest uppercase mb-3" style="color: var(--color-accent);">
+            Herramientas
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {siteConfig.tools.map((tool) => (
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono border transition-all duration-200 hover:border-[var(--color-accent)]"
+                style="color: var(--color-surface-light); opacity: 0.7; border-color: var(--color-primary-light); background: var(--color-primary);"
+              >
+                <BrandIcon name={tool} size={14} />
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
 
       <!-- Quick facts (1 col) -->
@@ -43,9 +62,21 @@ import { siteConfig } from "../config";
           <p class="font-mono text-xs tracking-widest uppercase mb-1" style="color: var(--color-accent);">
             Formación
           </p>
-          <p class="text-sm" style="color: var(--color-surface-light); opacity: 0.7;">
-            {siteConfig.about.education}
-          </p>
+          <div class="space-y-3">
+            {siteConfig.education.map((edu) => (
+              <div class="flex items-start gap-2">
+                <BrandIcon name={edu.school} size={16} class="mt-0.5 shrink-0" />
+                <div>
+                  <p class="text-sm font-medium" style="color: var(--color-surface-light); opacity: 0.8;">
+                    {edu.degree}
+                  </p>
+                  <p class="text-xs font-mono" style="color: var(--color-surface-light); opacity: 0.5;">
+                    {edu.school} · {edu.period}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <!-- Industry -->

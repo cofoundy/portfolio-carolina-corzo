@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../config";
+import BrandIcon from "./BrandIcon.astro";
 ---
 
 <section id="trayectoria" class="py-20 sm:py-28" style="background: var(--color-primary-dark);">
@@ -36,7 +37,8 @@ import { siteConfig } from "../config";
             </span>
 
             <!-- Company + Role -->
-            <h3 class="text-lg sm:text-xl tracking-wider mt-2" style="color: var(--color-surface-light);">
+            <h3 class="flex items-center gap-2 text-lg sm:text-xl tracking-wider mt-2" style="color: var(--color-surface-light);">
+              <BrandIcon name={exp.company} size={22} />
               {exp.company}
             </h3>
             <p class="font-mono text-xs tracking-wide mt-1" style="color: var(--color-surface-light); opacity: 0.6;">
